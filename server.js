@@ -61,11 +61,11 @@ app.use(limiter);
 
 // CORS configuration
 const allowedOrigins = [
+    process.env.FRONTEND_URL,
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'https://shivananda.vercel.app',
-    'https://shivananda2.vercel.app',
-    process.env.FRONTEND_URL
+    'https://shivananda2.vercel.app'
 ].filter(Boolean); // Remove any undefined values
 
 app.use(cors({
