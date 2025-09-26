@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "ProjectLink": "/Products/synthetic-fibre",
+      "ProjectImg": "/images/synthetic-fiber-p.png",
+      "ProjectTitle": "Synthetic Fibre"
+    },
+    {
+      "ProjectLink": "/Products/antrocel-g",
+      "ProjectImg": "/images/antrocel-g.jpg",
+      "ProjectTitle": "Antrocel-G"
+    },
+    {
+      "ProjectLink": "/Products/steel-fibre",
+      "ProjectImg": "/images/steel-1.jpg",
+      "ProjectTitle": "Steel Fibre"
+    },
+    {
+      "ProjectLink": "/Products/cellulose-fiber-pellets",
+      "ProjectImg": "/images/antrocel-2.jpg",
+      "ProjectTitle": "Cellulose Fiber Pellets"
+    },
+    {
+      "ProjectLink": "/Products/anti-stripping-agent",
+      "ProjectImg": "/images/anti-stripping-agent-main.jpg",
+      "ProjectTitle": "Anti Stripping Agent"
+    },
+    {
+      "ProjectLink": "/Products/silica-fume",
+      "ProjectImg": "/images/silica-fume.jpg",
+      "ProjectTitle": "Silica Fume"
+    }
+  ]
+}
