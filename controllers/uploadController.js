@@ -2,14 +2,14 @@ const path = require('path');
 const fs = require('fs');
 
 // Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '..', 'uploads');
+const uploadsDir = path.join(__dirname, '..', '..', 'frontend', 'public', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
 // Helper to generate file URL
 const getFileUrl = (filename) => {
-  return `${process.env.FRONTEND_URL || 'http://localhost:3000'}/uploads/${filename}`;
+  return `/uploads/${filename}`;
 };
 
 // Upload image handler

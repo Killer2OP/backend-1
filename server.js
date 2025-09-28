@@ -33,7 +33,6 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 
 
-
 // Security middleware
 app.use(helmet({
     contentSecurityPolicy: {
@@ -61,11 +60,10 @@ app.use(limiter);
 
 // CORS configuration
 const allowedOrigins = [
-    'http://localhost:3000',
+  process.env.FRONTEND_URL || 'http://localhost:3000',
     'http://127.0.0.1:3000',
     'https://shivananda.vercel.app',
-    'https://shivananda2.vercel.app',
-    process.env.FRONTEND_URL
+    'https://shivananda2.vercel.app'
 ].filter(Boolean); // Remove any undefined values
 
 app.use(cors({
@@ -110,26 +108,23 @@ app.use(hpp());
 
 // Compression middleware
 app.use(compression());
-
 // Logging middleware
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
-// Serve static files from public directory
-app.use(express.static('public'));
+app.use(express.static('../frontend/public'));
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/');
+    cb(null, '../frontend/public/uploads/');
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
   }
 });
-
 const upload = multer({
   storage: storage,
   limits: {
@@ -249,4 +244,8 @@ process.on('SIGINT', () => {
         console.log('MongoDB connection closed.');
         process.exit(0);
     });
+});
+
+app.get('/', (req, res) => {
+  res.send("backend server is running!!");
 });
